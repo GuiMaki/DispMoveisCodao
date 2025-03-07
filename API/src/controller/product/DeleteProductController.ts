@@ -1,11 +1,16 @@
 import { Request, Response } from "express";
+import { DeleteProductService } from "../../service/product/DeleteProductService";
 
 class DeleteProductController {
     async handle(request: Request, response: Response){
       
         const id = request.params.id
 
-        response.json({message: `Registro ${id} deletado com sucesso`})
+        const deleteProductService = new DeleteProductService();
+
+        const msg = await deleteProductService.execute(id);
+
+        response.json(msg)
     }
 }
 

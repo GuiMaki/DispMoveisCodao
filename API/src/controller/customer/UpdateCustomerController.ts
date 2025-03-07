@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { UpdateCustomerService } from "../../service/customer/UpdateCustomerService";
 
 class UpdateCustomerController {
     async handle(request: Request, response: Response){
@@ -6,16 +7,18 @@ class UpdateCustomerController {
 
         const id = request.params.id
 
-        const product = {
-            id:id,
-            name:name,
-            number:number,
-            email:email,
-            street:street,
-            neighborhood:neighborhood,
-            city:city,
-            state:state
-        };
+        const updateCustomerService = new UpdateCustomerService();
+
+        const product = await updateCustomerService.execute({
+            id,
+            name,
+            number,
+            email,
+            street,
+            neighborhood,
+            city,
+            state
+        });
 
         response.json({message: `Registro ${id} atualizado com sucesso`})
     }

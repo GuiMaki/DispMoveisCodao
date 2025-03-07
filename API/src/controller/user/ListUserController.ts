@@ -1,23 +1,15 @@
 import { Request, Response } from "express";
+import { ListUserService } from "../../service/user/ListUserService";
 
 class ListUserController {
-    async handle(request: Request, response: Response){
+    async handle(request: Request, response: Response) {
 
-        const user = [{
-            name:"Maki",
-            email:"makiyamagui@gmail.com",
-            admin:true,
-            password:"senhasecreta123"
-        },
-        {
-            name:"Roque",
-            email:"maalaumonkeymacaco@maalau.uhuhahah",
-            admin:false,
-            password:"senha"
-        }];
+        const listUserService = new ListUserService();
+
+        const user = await listUserService.execute();
 
         response.json(user)
-    }
+    };
 }
 
-export{ListUserController};
+export { ListUserController };
