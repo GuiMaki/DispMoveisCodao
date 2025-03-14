@@ -29,6 +29,9 @@ import { ListCategoryController } from "./controller/category/ListCategoryContro
 import { UpdateCategoryController } from "./controller/category/UpdateCategoryController";
 import { DeleteCategoryController } from "./controller/category/DeleteCategoryController";
 
+//Authentication
+import { PostAuthenticationController } from "./controller/authentication/PostAuthenticationController";
+
 /*---------------------------------------------------------------------------------------------------*/
 
 //Users
@@ -60,6 +63,9 @@ const createCategoryController = new CreateCategoryController();
 const listCategoryController = new ListCategoryController();
 const updateCategoryController = new UpdateCategoryController();
 const deleteCategoryController = new DeleteCategoryController();
+
+//Authentication
+const postAuthenticationController = new PostAuthenticationController();
 
 /*---------------------------------------------------------------------------------------------------*/
 
@@ -93,5 +99,8 @@ router.post("/categories", createCategoryController.handle);
 router.get("/categories", listCategoryController.handle);
 router.put("/categories/:id", updateCategoryController.handle);
 router.delete("/categories/:id", deleteCategoryController.handle);
+
+//Authentication
+router.post("/authentication", postAuthenticationController.handle)
 
 export {router}
