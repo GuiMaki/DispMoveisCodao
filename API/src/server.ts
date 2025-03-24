@@ -1,4 +1,6 @@
-import express from "express";
+import express, { NextFunction, Response, Request } from "express";
+import "express-async-errors"
+import "reflect-metadata"
 import { router } from "./routes"
 
 const app = express ();
@@ -10,3 +12,13 @@ app.use(router);
 app.listen(3000, () => {
     console.log("Start at =>3000");
 });
+
+app.use(
+    (error:Error, request:Request, response:Response, next:NextFunction) => {
+        if (error instanceof Error) {
+            response.status(400).send("Credenciais inválidas")
+        } else {
+            response.status(500).send("Erro interno")
+        }
+    }
+)

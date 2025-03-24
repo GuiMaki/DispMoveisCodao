@@ -3,8 +3,7 @@ import { PostAuthenticationService } from "../../service/authentication/PostAuth
 
 class PostAuthenticationController {
     async handle(request: Request, response: Response) {
-        try {
-            const { email, password } = request.body;
+        const { email, password } = request.body;
 
             const postAuthenticationService = new PostAuthenticationService();
 
@@ -14,10 +13,7 @@ class PostAuthenticationController {
             });
 
             response.json(authentication)
-        } catch (error: any) {
-            response.status(400).send(error.message)
-        };
-        }
+    }
 }
 
 export { PostAuthenticationController };
