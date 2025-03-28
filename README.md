@@ -21,4 +21,12 @@ Técnologias utilizadas:
 
 <p></p>
 <p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
 <sub><span style="color:#808080">This project is in Portuguese. If you need an English version, feel free to contact me.</span></sub>
