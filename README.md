@@ -3,8 +3,7 @@
 
 Técnologias utilizadas:
 
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)  
-**Ambiente de execução para o backend.**
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white) **Ambiente de execução para o backend.**
 
 ![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)  
 **Framework para roteamento e manipulação de requisições HTTP.**
