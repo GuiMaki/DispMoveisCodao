@@ -18,15 +18,5 @@ Técnologias utilizadas:
 ![jsonwebtoken](https://img.shields.io/badge/JSONWebToken-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)  **Gerencia autenticação utilizando JWT. - [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)**  
 
 ![bcryptjs](https://img.shields.io/badge/bcryptjs-00C7B7?style=for-the-badge&logo=lock&logoColor=white)  **Garante a segurança de senhas através de hashing. - [bcryptjs](https://www.npmjs.com/package/bcryptjs)**  
-
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
+---
 <sub><span style="color:#808080">This project is in Portuguese. If you need an English version, feel free to contact me.</span></sub>
