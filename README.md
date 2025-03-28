@@ -2,6 +2,7 @@
 ## Criação de uma aplicação móvel de e-comerce
 
 Técnologias utilizadas:
+
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 Ambiente de execução para o backend.
 
