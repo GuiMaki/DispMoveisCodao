@@ -3,23 +3,23 @@
 
 Técnologias utilizadas:
 
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)\n
 Ambiente de execução para o backend.
 
-![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white) 
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white) \n
 Framework para roteamento e manipulação de requisições HTTP.
 
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)\n
 Proporciona segurança de tipos ao código.
 
-![TypeORM](https://img.shields.io/badge/TypeORM-262627?style=for-the-badge&logo=typeorm&logoColor=white) 
+![TypeORM](https://img.shields.io/badge/TypeORM-262627?style=for-the-badge&logo=typeorm&logoColor=white) \n
 Gerencia interações com o banco de dados.
 
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white) 
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white) \n
 Banco de dados relacional para armazenamento de dados.
 
-![jsonwebtoken](https://img.shields.io/badge/JSONWebToken-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white) 
+![jsonwebtoken](https://img.shields.io/badge/JSONWebToken-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white) \n
 Gerencia autenticação utilizando JWT.
 
-![bcryptjs](https://img.shields.io/badge/bcryptjs-00C7B7?style=for-the-badge&logo=lock&logoColor=white) 
+![bcryptjs](https://img.shields.io/badge/bcryptjs-00C7B7?style=for-the-badge&logo=lock&logoColor=white) \n
 Garante a segurança de senhas através de hashing.
