@@ -17,7 +17,7 @@ app.listen(3000, () => {
 app.use(
     (error:Error, request:Request, response:Response, next:NextFunction) => {
         if (error instanceof Error) {
-            response.status(400).send("Credenciais inválidas")
+            response.status(400).send(error.message)
         } else {
             response.status(500).send("Erro interno")
         }

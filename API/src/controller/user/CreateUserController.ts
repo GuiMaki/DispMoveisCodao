@@ -14,7 +14,7 @@ class CreateUserController {
             password,
         })
 
-        response.json({message: `Usuário ${name} incluído com sucesso`})
+        response.status(200).send( `Usuário ${name} incluído com sucesso`)
     }
 }
 

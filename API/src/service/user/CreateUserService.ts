@@ -5,15 +5,15 @@ import { hash } from "bcryptjs";
 
 class CreateUserService {
     async execute({ name, email, admin = false, password }: IUserRequest) {
-        if(!email) {
-            throw new Error("E-mail inválido"); 
+        if(!name || !email || !password) {
+            throw new Error("Dados inválidos!"); 
         }
 
         const userRepository = getCustomRepository(UserRepositories);
-        const userAlreadyExists = await userRepository.findOne({ email, });
+        const userAlreadyExists = await userRepository.findOne({ email });
 
         if (userAlreadyExists) {
-            throw new Error("Usuário já cadastrado!");
+            throw new Error("E-mail já cadastrado!");
         }
 
         const passwordHash = await hash(password, 8);
