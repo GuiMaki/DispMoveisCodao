@@ -4,26 +4,32 @@
 Técnologias utilizadas:
 
 <div>
-
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white) \n 
-**Ambiente de execução para o backend.**
-
-![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)  \n
-**Framework para roteamento e manipulação de requisições HTTP.**
-
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)  \n
-**Proporciona segurança de tipos ao código.**
-
-![TypeORM](https://img.shields.io/badge/TypeORM-262627?style=for-the-badge&logo=typeorm&logoColor=white)  \n
-**Gerencia interações com o banco de dados.**
-
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)  \n
-**Banco de dados relacional para armazenamento de dados.**
-
-![jsonwebtoken](https://img.shields.io/badge/JSONWebToken-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)  \n
-**Gerencia autenticação utilizando JWT.**
-
-![bcryptjs](https://img.shields.io/badge/bcryptjs-00C7B7?style=for-the-badge&logo=lock&logoColor=white)  \n
-**Garante a segurança de senhas através de hashing.**
-
+  <p>
+  ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white) 
+  **Ambiente de execução para o backend.**
+  </p>
+  <p>
+  ![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white) 
+  **Framework para roteamento e manipulação de requisições HTTP.**
+  </p>
+  <p>
+  ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) 
+  **Proporciona segurança de tipos ao código.**
+  </p>
+  <p>
+  ![TypeORM](https://img.shields.io/badge/TypeORM-262627?style=for-the-badge&logo=typeorm&logoColor=white) 
+  **Gerencia interações com o banco de dados.**
+  </p>
+  <p>
+  ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white) 
+  **Banco de dados relacional para armazenamento de dados.**
+  </p>
+  <p>
+  ![jsonwebtoken](https://img.shields.io/badge/JSONWebToken-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white) 
+  **Gerencia autenticação utilizando JWT.**
+  </p>
+  <p>
+  ![bcryptjs](https://img.shields.io/badge/bcryptjs-00C7B7?style=for-the-badge&logo=lock&logoColor=white)  
+  **Garante a segurança de senhas através de hashing.**
+  </p>
 </div>
