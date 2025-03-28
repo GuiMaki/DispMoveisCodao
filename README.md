@@ -19,4 +19,6 @@ Técnologias utilizadas:
 
 ![bcryptjs](https://img.shields.io/badge/bcryptjs-00C7B7?style=for-the-badge&logo=lock&logoColor=white)  **Garante a segurança de senhas através de hashing. - [bcryptjs](https://www.npmjs.com/package/bcryptjs)**  
 
-###This project is in Portuguese. If you need an English version, feel free to contact me.
+<p></p>
+<p></p>
+<sub><span style="color:gray">This project is in Portuguese. If you need an English version, feel free to contact me.</span></sub>
