@@ -18,7 +18,7 @@ class sale{
     customer: Customer
  
     @Column("decimal")
-    ammount: number
+    amount: number
 
     @Column("decimal")
     total: number

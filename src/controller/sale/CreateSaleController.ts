@@ -3,7 +3,7 @@ import { CreateSaleService } from "../../service/sale/CreateSaleService";
 
 class CreateSaleController {
     async handle(request: Request, response: Response){
-        const {date, product, customer, ammount, total} = request.body;
+        const {date, product, customer, amount, total} = request.body;
 
         const createSaleService = new CreateSaleService();
 
@@ -11,7 +11,7 @@ class CreateSaleController {
             date:date,
             product:product,
             customer:customer,
-            ammount:ammount,
+            amount:amount,
             total:total
         });
 

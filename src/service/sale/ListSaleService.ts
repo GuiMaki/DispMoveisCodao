@@ -18,7 +18,7 @@ class ListSaleService {
                     }
                 ],
                 customer: "Willian Zhang",
-                ammount: "20",
+                amount: "20",
                 total: "20000.00"
             },
             {
@@ -38,7 +38,7 @@ class ListSaleService {
                     }
                 ],
                 customer: "Roque Edu",
-                ammount: "200",
+                amount: "200",
                 total: "30000.00"
             }
         ];

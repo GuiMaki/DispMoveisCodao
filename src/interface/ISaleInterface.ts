@@ -6,7 +6,7 @@ interface ISaleRequest {
     date: Date,
     product: IProductRequest[],
     customer: ICustomerRequest,
-    ammount: number,
+    amount: number,
     total: number
 }
 

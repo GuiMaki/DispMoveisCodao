@@ -3,7 +3,7 @@ import { UpdateSaleService } from "../../service/sale/UpdateSaleService";
 
 class UpdateSaleController {
     async handle(request: Request, response: Response){
-        const {date, product, customer, ammount, total} = request.body;
+        const {date, product, customer, amount, total} = request.body;
 
         const id = request.params.id
 
@@ -14,7 +14,7 @@ class UpdateSaleController {
             date,
             product,
             customer,
-            ammount,
+            amount,
             total,
         });
 

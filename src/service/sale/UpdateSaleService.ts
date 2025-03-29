@@ -1,7 +1,7 @@
 import { ISaleRequest } from "../../interface/ISaleInterface";
 
 class UpdateSaleService {
-    async execute({id, date, product, customer, ammount, total }: ISaleRequest){
+    async execute({id, date, product, customer, amount, total }: ISaleRequest){
         if (!product) {
             throw new Error("Venda inválida");
         }
@@ -10,7 +10,7 @@ class UpdateSaleService {
             date: date,
             product: product,
             customer: customer,
-            ammount: ammount,
+            amount: amount,
             total: total
         };
         return user;
