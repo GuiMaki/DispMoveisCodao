@@ -1,7 +1,3 @@
-# Awesome Project Build with TypeORM
+Aula de Dispositivos móveis do Professor Fabio Codo
 
-Steps to run this project:
-
-1. Run `npm i` command
-2. Setup database settings inside `ormconfig.json` file
-3. Run `npm start` command
+Criação de uma aplicação móvel de e-comerce
