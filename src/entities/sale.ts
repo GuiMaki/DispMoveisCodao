@@ -1,4 +1,4 @@
-import { Entity, PrimaryColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne } from "typeorm";
+import { Entity, PrimaryColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, OneToMany } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { Product } from "./product";
 import { Customer } from "./customer";
@@ -14,13 +14,13 @@ class sale{
     @ManyToOne (() => Product, (product) => product.id)
     product: Product
 
-    @ManyToOne (() => Customer, (customer) => customer.id)
+    @OneToMany (() => Customer, (customer) => customer.id)
     customer: Customer
  
-    @Column("decimal")
+    @Column("int")
     amount: number
 
-    @Column("decimal")
+    @Column("decimal", { precision: 10, scale: 2 })
     total: number
     
     @CreateDateColumn()
