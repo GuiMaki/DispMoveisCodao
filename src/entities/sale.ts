@@ -1,7 +1,7 @@
-import { Entity, PrimaryColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, ManyToMany, JoinTable } from "typeorm";
+import { Entity, PrimaryColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, OneToMany } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { customer } from "./customer";
-import { product } from "./product";
+import { saleProduct } from "./saleProduct";
 
 @Entity("sales")
 class sale {
@@ -14,16 +14,8 @@ class sale {
     @ManyToOne(() => customer, (customer) => customer.sales, { eager: true })
     customer: customer;
 
-    @ManyToMany(() => product, { eager: true })
-    @JoinTable({
-        name: "sale_products",
-        joinColumn: { name: "sale_id", referencedColumnName: "id" },
-        inverseJoinColumn: { name: "product_id", referencedColumnName: "id" }
-    })
-    products: product[];
-
-    @Column("int")
-    amount: number;
+    @OneToMany(() => saleProduct, (saleProduct) => saleProduct.sale, { eager: true })
+    saleProduct: saleProduct[]; 
 
     @Column("decimal", { precision: 10, scale: 2 })
     total: number;

@@ -1,6 +1,15 @@
-import { Entity, PrimaryColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne } from "typeorm";
+import { 
+    Entity, 
+    PrimaryColumn, 
+    Column, 
+    CreateDateColumn, 
+    UpdateDateColumn, 
+    ManyToOne,
+    OneToMany
+} from "typeorm";
 import { v4 as uuid } from 'uuid';
 import { category } from './category';
+import { saleProduct } from './saleProduct';
 
 @Entity("products")
 class product {
@@ -18,6 +27,9 @@ class product {
 
     @Column("decimal", { precision: 10, scale: 2 })
     price: number;
+
+    @OneToMany(() => saleProduct, (saleProduct) => saleProduct.product)
+    saleProduct: saleProduct[]; // Relacionamento com a nova tabela de junção
 
     @CreateDateColumn()
     created_at: Date;
