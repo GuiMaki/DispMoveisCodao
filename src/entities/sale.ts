@@ -11,10 +11,10 @@ class sale{
     @Column()
     date: Date
 
-    @ManyToOne (() => Product, (product) => product.sales)
+    @ManyToOne (() => Product, (product) => product.id)
     product: Product
 
-    @ManyToOne (() => Customer, (customer) => customer.sales)
+    @ManyToOne (() => Customer, (customer) => customer.id)
     customer: Customer
  
     @Column("decimal")
