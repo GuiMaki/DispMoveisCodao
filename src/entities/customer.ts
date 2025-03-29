@@ -1,31 +1,41 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryColumn, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
 import { v4 as uuid } from 'uuid';
+import { sale } from './sale';
 
 @Entity("customers")
 class customer {
-    @PrimaryGeneratedColumn("uuid")
-    readonly id!: string;
+    @PrimaryColumn()
+    readonly id: string;
 
     @Column()
-    name!: string;
+    name: string;
 
     @Column()
-    number!: string;
+    number: string;
 
     @Column()
-    email!: string;
+    email: string;
 
     @Column()
-    street!: string;
+    street: string;
 
     @Column()
-    neighborhood!: string;
+    neighborhood: string;
 
     @Column()
-    city!: string;
+    city: string;
 
     @Column()
-    state!: string;
+    state: string;
+
+    @OneToMany(() => sale, (sale) => sale.customer)
+    sales: sale[];
+
+    @CreateDateColumn()
+    created_at: Date;
+
+    @UpdateDateColumn()
+    updated_at: Date;
 
     constructor() {
         if (!this.id) {

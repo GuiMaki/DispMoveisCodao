@@ -1,23 +1,29 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Entity, PrimaryColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne } from "typeorm";
 import { v4 as uuid } from 'uuid';
 import { category } from './category';
 
 @Entity("products")
 class product {
-    @PrimaryGeneratedColumn("uuid")
-    readonly id!: string;
+    @PrimaryColumn()
+    readonly id: string;
 
     @Column()
-    name!: string;
+    name: string;
 
-    @OneToMany(() => category, (category) => category.id)
-    category!: string;
+    @ManyToOne(() => category, (category) => category.products, { eager: true })
+    category: category;
 
     @Column()
-    description!: string;
+    description: string;
 
-    @Column("decimal")
-    price!: number;
+    @Column("decimal", { precision: 10, scale: 2 })
+    price: number;
+
+    @CreateDateColumn()
+    created_at: Date;
+
+    @UpdateDateColumn()
+    updated_at: Date;
 
     constructor() {
         if (!this.id) {

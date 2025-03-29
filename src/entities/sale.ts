@@ -1,28 +1,33 @@
-import { Entity, PrimaryColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, OneToMany } from "typeorm";
+import { Entity, PrimaryColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, ManyToMany, JoinTable } from "typeorm";
 import { v4 as uuid } from "uuid";
-import { product } from "./product";
 import { customer } from "./customer";
+import { product } from "./product";
 
 @Entity("sales")
-class sale{
+class sale {
     @PrimaryColumn()
-    readonly id!: string;
+    readonly id: string;
 
     @Column()
-    date: Date
+    date: Date;
 
-    @ManyToOne (() => product, (product) => product.id)
-    product: product
+    @ManyToOne(() => customer, (customer) => customer.sales, { eager: true })
+    customer: customer;
 
-    @OneToMany (() => customer, (customer) => customer.id)
-    customer: customer
- 
+    @ManyToMany(() => product, { eager: true })
+    @JoinTable({
+        name: "sale_products",
+        joinColumn: { name: "sale_id", referencedColumnName: "id" },
+        inverseJoinColumn: { name: "product_id", referencedColumnName: "id" }
+    })
+    products: product[];
+
     @Column("int")
-    amount: number
+    amount: number;
 
     @Column("decimal", { precision: 10, scale: 2 })
-    total: number
-    
+    total: number;
+
     @CreateDateColumn()
     created_at: Date;
 
@@ -30,10 +35,10 @@ class sale{
     updated_at: Date;
 
     constructor() {
-        if (!this.id){
+        if (!this.id) {
             this.id = uuid();
         }
     }
 }
 
-export { sale }
+export { sale };

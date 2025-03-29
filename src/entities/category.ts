@@ -1,13 +1,23 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryColumn, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
 import { v4 as uuid } from 'uuid';
+import { product } from './product';
 
 @Entity("categories")
 class category {
-    @PrimaryGeneratedColumn("uuid")
-    readonly id!: string;
+    @PrimaryColumn()
+    readonly id: string;
 
     @Column()
-    name!: string;
+    name: string;
+
+    @OneToMany(() => product, (product) => product.category)
+    products: product[];
+
+    @CreateDateColumn()
+    created_at: Date;
+
+    @UpdateDateColumn()
+    updated_at: Date;
 
     constructor() {
         if (!this.id) {
