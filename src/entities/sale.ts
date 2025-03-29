@@ -1,7 +1,7 @@
 import { Entity, PrimaryColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, OneToMany } from "typeorm";
 import { v4 as uuid } from "uuid";
-import { Product } from "./product";
-import { Customer } from "./customer";
+import { product } from "./product";
+import { customer } from "./customer";
 
 @Entity("sales")
 class sale{
@@ -11,11 +11,11 @@ class sale{
     @Column()
     date: Date
 
-    @ManyToOne (() => Product, (product) => product.id)
-    product: Product
+    @ManyToOne (() => product, (product) => product.id)
+    product: product
 
-    @OneToMany (() => Customer, (customer) => customer.id)
-    customer: Customer
+    @OneToMany (() => customer, (customer) => customer.id)
+    customer: customer
  
     @Column("int")
     amount: number

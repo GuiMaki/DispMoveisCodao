@@ -1,16 +1,16 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { v4 as uuid } from 'uuid';
-import { Category } from './category';
+import { category } from './category';
 
 @Entity("products")
-class Product {
+class product {
     @PrimaryGeneratedColumn("uuid")
     readonly id!: string;
 
     @Column()
     name!: string;
 
-    @OneToMany(() => Category, (category) => category.id)
+    @OneToMany(() => category, (category) => category.id)
     category!: string;
 
     @Column()
@@ -26,4 +26,4 @@ class Product {
     }
 }
 
-export { Product };
+export { product };

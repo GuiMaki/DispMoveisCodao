@@ -2,7 +2,7 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 
 @Entity("categories")
-class Category {
+class category {
     @PrimaryGeneratedColumn("uuid")
     readonly id!: string;
 
@@ -16,4 +16,4 @@ class Category {
     }
 }
 
-export { Category };
+export { category };
