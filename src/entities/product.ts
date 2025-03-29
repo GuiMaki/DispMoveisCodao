@@ -1,5 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { v4 as uuid } from 'uuid';
+import { Category } from './category';
 
 @Entity("products")
 class Product {
@@ -9,7 +10,7 @@ class Product {
     @Column()
     name!: string;
 
-    @Column()
+    @OneToMany(() => Category, (category) => category.id)
     category!: string;
 
     @Column()
