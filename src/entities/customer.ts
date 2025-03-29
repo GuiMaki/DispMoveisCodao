@@ -1,4 +1,11 @@
-import { Entity, Column, PrimaryColumn, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
+import { 
+    Entity, 
+    Column, 
+    PrimaryColumn, 
+    CreateDateColumn, 
+    UpdateDateColumn, 
+    OneToMany 
+} from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import { sale } from './sale';
 
