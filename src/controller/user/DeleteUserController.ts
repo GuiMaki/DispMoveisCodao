@@ -5,12 +5,13 @@ class DeleteUserController {
     async handle(request: Request, response: Response) {
 
         const id = request.params.id
+        const name = request.params.name
 
         const deleteUserService = new DeleteUserService();
 
         const msg = await deleteUserService.execute(id);
 
-        response.json(msg)
+        response.status(200).send(`Usuário ${id} nome: ${name} excluido com sucesso!`)
     }
 }
 

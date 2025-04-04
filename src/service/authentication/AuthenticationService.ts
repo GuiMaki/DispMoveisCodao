@@ -1,19 +1,28 @@
 import { IAuthenticationRequest } from "../../interface/IAuthenticationInterface";
 import { sign } from "jsonwebtoken";
 import { hash, compare } from "bcryptjs";
+import { getCustomRepository } from "typeorm";
+import { UserRepositories } from "../../repositories/UserRepositories";
 
 class AuthenticationService {
     async execute({ email, password }: IAuthenticationRequest) {
         if (!email || !password) {
             throw new Error("Email ou senha inválidos");
         }
-        
-        const secret = await hash("fatec", 8);
-        const passwordMatch = await compare(password, secret);
-        if (!passwordMatch || email != "guimaki@gmail.com") {
-            throw new Error("Credenciais inválidas");
+
+        const userRepositories = getCustomRepository(UserRepositories);
+        const user = await userRepositories.findOne({ email });
+
+        if (!user){
+            throw new Error("Usuário não encontrado");
         }
 
+        const passwordMatch = await compare(password, user?.password);
+        
+        if (!passwordMatch){
+            throw new Error("Credenciais incorretas!");
+        }
+        
         const authentication = sign(
             {
                 email: email,

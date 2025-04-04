@@ -11,7 +11,7 @@ class CreateCategoryController {
             name,
         });
 
-        response.json({message: "Registro incluído com sucesso"})
+        response.status(200).send( `Categoria ${name} incluído com sucesso`)
     }
 }
 

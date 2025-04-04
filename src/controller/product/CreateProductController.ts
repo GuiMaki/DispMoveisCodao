@@ -14,7 +14,7 @@ class CreateProductController {
             price,
         });
 
-        response.json({message: "Registro incluído com sucesso"})
+        response.status(200).send( `Produto ${name} incluído com sucesso`)
     }
 }
 

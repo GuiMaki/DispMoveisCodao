@@ -1,13 +1,18 @@
+import { getCustomRepository } from "typeorm";
+import { ProductRepositories } from "../../repositories/ProductRepositories";
+
 class DeleteProductService {
     async execute(id:string) {
+        
+        const productRepository = getCustomRepository(ProductRepositories);
 
-        console.log(id);
+        const productAlreadyExists = await productRepository.findOne({ id });
 
-        const msg = {
-            message: `Registro ${id} removido com sucesso`
+        if (!productAlreadyExists){
+            throw new Error("Produto não encontrado");
         }
 
-        return msg
+        return await productRepository.remove(productAlreadyExists);
     }
 }
 

@@ -1,13 +1,18 @@
+import { getCustomRepository } from "typeorm";
+import { UserRepositories } from "../../repositories/UserRepositories";
+
 class DeleteUserService {
     async execute(id:string) {
 
-        console.log(id);
+        const userRepository = getCustomRepository(UserRepositories);
 
-        const msg = {
-            message: `Registro ${id} removido com sucesso`
+        const userAlreadyExists = await userRepository.findOne({ id, });
+
+        if (!userAlreadyExists){
+            throw new Error("Usuário não encontrado");
         }
 
-        return msg
+        return await userRepository.remove(userAlreadyExists);
     }
 }
 

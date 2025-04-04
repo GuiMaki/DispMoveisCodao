@@ -5,12 +5,13 @@ class DeleteCategoryController {
     async handle(request: Request, response: Response){
       
         const id = request.params.id
+        const name = request.params.name
 
         const deleteCategoryService = new DeleteCategoryService();
 
         const msg = await deleteCategoryService.execute(id);
 
-        response.json(msg)
+        response.status(200).send(`Categoria ${id} nome: ${name} excluido com sucesso!`)
     }
 }
 
