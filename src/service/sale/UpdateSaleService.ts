@@ -10,7 +10,7 @@ class UpdateSaleService {
 
         const saleAlreadyExists = await saleRepository.findOne({
             where: { id },
-            relations: ["saleProduct"], // importante carregar para evitar erro
+            relations: ["saleProduct"], 
         });
 
         if (!saleAlreadyExists) {
@@ -42,7 +42,6 @@ class UpdateSaleService {
             saleAlreadyExists.updated_at = new Date();
         }
 
-        // ✅ Remove a lista de produtos para evitar erro de integridade referencial
         delete saleAlreadyExists.saleProduct;
 
         return await saleRepository.save(saleAlreadyExists);
