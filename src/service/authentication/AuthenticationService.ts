@@ -1,6 +1,6 @@
 import { IAuthenticationRequest } from "../../interface/IAuthenticationInterface";
 import { sign } from "jsonwebtoken";
-import { hash, compare } from "bcryptjs";
+import { compare } from "bcryptjs";
 import { getCustomRepository } from "typeorm";
 import { UserRepositories } from "../../repositories/UserRepositories";
 
@@ -18,7 +18,7 @@ class AuthenticationService {
         }
 
         const passwordMatch = await compare(password, user?.password);
-        
+                
         if (!passwordMatch){
             throw new Error("Credenciais incorretas!");
         }
