@@ -10,22 +10,16 @@ import { sale } from "./sale";
 
 @Entity("sale_product")
 class saleProduct {
-    @ManyToOne(() => sale, (sale) => sale.saleProduct)
+    @PrimaryColumn()
+    amount: number;
+
+    @ManyToOne(() => sale, (sale) => sale.saleProduct, { primary: true })
     @JoinColumn({ name: "sale_id" })
     sale: sale;
 
-    @ManyToOne(() => product, (product) => product.saleProduct)
+    @ManyToOne(() => product, (product) => product.saleProduct, { primary: true })
     @JoinColumn({ name: "product_id" })
     product: product;
-
-    @Column("int")
-    amount: number;
-
-    @PrimaryColumn()
-    sale_id: string;
-
-    @PrimaryColumn()
-    product_id: string;
 }
 
 export { saleProduct };

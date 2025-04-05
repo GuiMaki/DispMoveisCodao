@@ -1,49 +1,29 @@
+import { getCustomRepository } from "typeorm";
+import { SaleRepositories } from "../../repositories/SaleRepositories";
+
 class ListSaleService {
     async execute() {
-        const sale = [
-            {
-                date: new Date("2025-03-06"),
-                product: [
-                    {
-                        name: "Bola de Vôlei",
-                        category: "Brinquedos",
-                        description: "Bola de tecido para modalidade vôlei",
-                        price: "30.55",
-                    },
-                    {
-                        name: "Bola de Tênis",
-                        category: "Brinquedos",
-                        description: "Bola de tecido para modalidade basquete",
-                        price: "30.55",
-                    }
-                ],
-                customer: "Willian Zhang",
-                amount: "20",
-                total: "20000.00"
-            },
-            {
-                date: new Date("2025-03-06"),
-                product: [
-                    {
-                        name: "Bola de Vôlei",
-                        category: "Brinquedos",
-                        description: "Bola de tecido para modalidade vôlei",
-                        price: "30.55",
-                    },
-                    {
-                        name: "Bola de Tênis",
-                        category: "Brinquedos",
-                        description: "Bola de tecido para modalidade tênis",
-                        price: "30.55",
-                    }
-                ],
-                customer: "Roque Edu",
-                amount: "200",
-                total: "30000.00"
-            }
-        ];
+        const saleRepository = getCustomRepository(SaleRepositories);
 
-        return sale;
+        const sale = await saleRepository.find()
+
+        return sale.map(sale => ({
+            id: sale.id,
+            date: sale.date,
+            total: sale.total,
+            customer: {
+                id: sale.customer.id,
+                name: sale.customer.name,
+                email: sale.customer.email,
+                number: sale.customer.number,
+            },
+            saleProducts: sale.saleProduct.map(product => ({
+                product_id: product.product_id,
+                amount: product.amount,
+            })),
+            created_at: sale.created_at,
+            updated_at: sale.updated_at,
+        }))
     }
 }
 

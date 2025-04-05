@@ -1,20 +1,52 @@
 import { ISaleRequest } from "../../interface/ISaleInterface";
+import { getCustomRepository } from "typeorm";
+import { SaleRepositories } from "../../repositories/SaleRepositories";
+import { CustomerRepositories } from "../../repositories/CustomerRepositories";
 
 class UpdateSaleService {
-    async execute({id, date, product, customer, amount, total }: ISaleRequest){
-        if (!product) {
-            throw new Error("Venda inválida");
+    async execute({ id, date, customer, total }: ISaleRequest) {
+        const saleRepository = getCustomRepository(SaleRepositories);
+        const customerRepository = getCustomRepository(CustomerRepositories);
+
+        const saleAlreadyExists = await saleRepository.findOne({
+            where: { id },
+            relations: ["saleProduct"], // importante carregar para evitar erro
+        });
+
+        if (!saleAlreadyExists) {
+            throw new Error("Venda não encontrada");
         }
-        const user = {
-            id: id,
-            date: date,
-            product: product,
-            customer: customer,
-            amount: amount,
-            total: total
-        };
-        return user;
+
+        let updated = false;
+
+        if (date) {
+            saleAlreadyExists.date = date;
+            updated = true;
+        }
+
+        if (customer) {
+            const customerAlreadyExists = await customerRepository.findOne({
+                name: customer.name,
+                email: customer.email,
+            });
+
+            if (!customerAlreadyExists) {
+                throw new Error("Cliente não encontrado");
+            }
+
+            saleAlreadyExists.customer = customerAlreadyExists;
+            updated = true;
+        }
+
+        if (updated) {
+            saleAlreadyExists.updated_at = new Date();
+        }
+
+        // ✅ Remove a lista de produtos para evitar erro de integridade referencial
+        delete saleAlreadyExists.saleProduct;
+
+        return await saleRepository.save(saleAlreadyExists);
     }
 }
 
-export { UpdateSaleService }
+export { UpdateSaleService };

@@ -6,6 +6,7 @@ interface IProductRequest {
     category: ICategoryRequest,
     description: string,
     price: number,
+    amount: number
 }
 
 export { IProductRequest }

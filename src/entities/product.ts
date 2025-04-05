@@ -29,7 +29,7 @@ class product {
     price: number;
 
     @OneToMany(() => saleProduct, (saleProduct) => saleProduct.product)
-    saleProduct: saleProduct[]; // Relacionamento com a nova tabela de junção
+    saleProduct: saleProduct[]; 
 
     @CreateDateColumn()
     created_at: Date;

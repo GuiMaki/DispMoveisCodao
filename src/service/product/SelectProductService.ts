@@ -8,7 +8,7 @@ class SelectProductService {
         const productAlreadyExists = await productRepository.findOne({ id, });
 
         if (!productAlreadyExists){
-            throw new Error("Usuário não encontrado");
+            throw new Error("Produto não encontrado");
         }
 
         return productAlreadyExists;

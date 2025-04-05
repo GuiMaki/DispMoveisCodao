@@ -3,7 +3,7 @@ import { CreateSaleService } from "../../service/sale/CreateSaleService";
 
 class CreateSaleController {
     async handle(request: Request, response: Response){
-        const {date, product, customer, amount, total} = request.body;
+        const {id, date, product, customer, amount, total} = request.body;
 
         const createSaleService = new CreateSaleService();
 
@@ -15,7 +15,7 @@ class CreateSaleController {
             total:total
         });
 
-        response.json({message: "Registro incluído com sucesso"})
+        response.status(200).send(`Venda registrada com sucesso!`);
     }
 }
 
