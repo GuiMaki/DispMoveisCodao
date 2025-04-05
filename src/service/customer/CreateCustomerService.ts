@@ -1,21 +1,25 @@
 import { ICustomerRequest } from "../../interface/ICustomerInterface";
+import { CustomerRepositories } from "../../repositories/CustomerRepositories";
+import { getCustomRepository } from "typeorm";
 
 class CreateCustomerService {
     async execute({ name, number, email, street, neighborhood, city, state }: ICustomerRequest) {
-        if (!email) {
-            throw new Error("E-mail inválido");
+        if (!name || !number || !email || !street || !neighborhood || !city || !state) {
+            throw new Error("Dados inválidos!");
         }
-        const product = {
-            name: name,
-            number: number,
-            email: email,
-            street: street,
-            neighborhood: neighborhood,
-            city: city,
-            state: state,
-        };
+        
+        const customerRepository = getCustomRepository(CustomerRepositories);
+        const customerAlreadyExists = await customerRepository.findOne({ email });
 
-        return product;
+        if (customerAlreadyExists) {
+            throw new Error("E-mail já cadastrado!");
+        }
+
+        const customer = customerRepository.create({ name, number, email, street, neighborhood, city, state });
+
+        await customerRepository.save(customer);
+
+        return customer;
     }
 }
 

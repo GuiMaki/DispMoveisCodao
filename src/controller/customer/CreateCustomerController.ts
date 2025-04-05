@@ -17,7 +17,7 @@ class CreateCustomerController {
             state
         });
 
-        response.json({message: "Registro incluído com sucesso"})
+        response.status(200).send( `Cliente ${name} incluído com sucesso`)
     }
 }
 

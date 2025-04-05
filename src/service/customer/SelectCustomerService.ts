@@ -1,9 +1,8 @@
 import { getCustomRepository } from "typeorm";
 import { CustomerRepositories } from "../../repositories/CustomerRepositories";
 
-class DeleteCustomerService {
-    async execute(id:string) {
-
+class SelectCustomerService {
+    async execute(id: string) {
         const customerRepository = getCustomRepository(CustomerRepositories);
 
         const customerAlreadyExists = await customerRepository.findOne({ id, });
@@ -12,8 +11,8 @@ class DeleteCustomerService {
             throw new Error("Cliente não encontrado");
         }
 
-        return await customerRepository.remove(customerAlreadyExists);
+        return customerAlreadyExists;
     }
 }
 
-export { DeleteCustomerService }
+export { SelectCustomerService }

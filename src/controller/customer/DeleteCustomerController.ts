@@ -10,7 +10,7 @@ class DeleteCustomerController {
 
         const msg = await deleteCustomerService.execute(id);
 
-        response.json(msg)
+        response.status(200).send(`Cliente ${id} excluido com sucesso!`)
     }
 }
 
