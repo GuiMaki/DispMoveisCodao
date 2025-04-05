@@ -15,13 +15,9 @@ const selectUserController = new SelectUserController();
 const router = Router();
 
 router.post("", createUserController.handle);
-
 router.get("", listUserController.handle);
-
 router.get("/:id", selectUserController.handle);
-
 router.put("/:id", updateUserController.handle);
-
 router.delete("/:id", deleteUserController.handle);
 
 export default router;

@@ -1,13 +1,18 @@
+import { getCustomRepository } from "typeorm";
+import { CategoryRepositories } from "../../repositories/CategoryRepositories";
+
 class DeleteCategoryService {
     async execute(id:string) {
 
-        console.log(id);
+        const productRepository = getCustomRepository(CategoryRepositories);
 
-        const msg = {
-            message: `Registro ${id} removido com sucesso`
+        const categoryAlreadyExists = await productRepository.findOne({ id });
+
+        if (!categoryAlreadyExists){
+            throw new Error("Categoria não encontrada");
         }
 
-        return msg
+        return await productRepository.remove(categoryAlreadyExists);
     }
 }
 

@@ -13,11 +13,8 @@ const deleteCustomerController = new DeleteCustomerController();
 const router = Router();
 
 router.post("", createCustomerController.handle);
-
 router.get("", listCustomerController.handle);
-
 router.put("/:id", updateCustomerController.handle);
-
 router.delete("/:id", deleteCustomerController.handle);
 
 export default router;
