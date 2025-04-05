@@ -1,2 +1,3 @@
 User CRUD -> Done
-
+Product CRUD -> Done
+Category CRUD -> Done
