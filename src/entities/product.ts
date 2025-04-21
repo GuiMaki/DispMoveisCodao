@@ -10,6 +10,7 @@ import {
 import { v4 as uuid } from 'uuid';
 import { category } from './category';
 import { saleProduct } from './saleProduct';
+import { ratting } from './ratting';
 
 @Entity("products")
 class product {
@@ -29,14 +30,17 @@ class product {
     price: number;
 
     @OneToMany(() => saleProduct, (saleProduct) => saleProduct.product)
-    saleProduct: saleProduct[]; 
+    saleProduct: saleProduct[];
+    
+    @OneToMany(() => ratting, (ratting) => ratting.product)
+    ratting: ratting;
 
     @CreateDateColumn()
     created_at: Date;
 
     @UpdateDateColumn()
     updated_at: Date;
-
+    
     constructor() {
         if (!this.id) {
             this.id = uuid();
