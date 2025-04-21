@@ -8,7 +8,7 @@ import {
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import { sale } from './sale';
-import { ratting } from './ratting';
+import { rating } from './rating';
 
 @Entity("customers")
 class customer {
@@ -39,8 +39,8 @@ class customer {
     @OneToMany(() => sale, (sale) => sale.customer)
     sales: sale[];
 
-    @OneToMany(() => ratting, (ratting) => ratting.product)
-    ratting: ratting;
+    @OneToMany(() => rating, (ratting) => ratting.product)
+    ratting: rating;
 
     @CreateDateColumn()
     created_at: Date;

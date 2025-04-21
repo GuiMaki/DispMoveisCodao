@@ -10,7 +10,7 @@ import {
 import { v4 as uuid } from 'uuid';
 import { category } from './category';
 import { saleProduct } from './saleProduct';
-import { ratting } from './ratting';
+import { rating } from './rating';
 
 @Entity("products")
 class product {
@@ -32,8 +32,8 @@ class product {
     @OneToMany(() => saleProduct, (saleProduct) => saleProduct.product)
     saleProduct: saleProduct[];
     
-    @OneToMany(() => ratting, (ratting) => ratting.product)
-    ratting: ratting;
+    @OneToMany(() => rating, (ratting) => ratting.product)
+    ratting: rating;
 
     @CreateDateColumn()
     created_at: Date;

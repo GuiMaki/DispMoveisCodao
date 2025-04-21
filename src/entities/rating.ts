@@ -11,7 +11,7 @@ import { product } from "./product";
 import { v4 as uuid } from 'uuid';
 
 @Entity()
-export class ratting {
+class rating {
     @PrimaryColumn()
     readonly id: string;
 
@@ -42,3 +42,5 @@ export class ratting {
         }
     }
 }
+
+export { rating };
