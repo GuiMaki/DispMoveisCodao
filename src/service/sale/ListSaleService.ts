@@ -5,9 +5,9 @@ class ListSaleService {
     async execute() {
         const saleRepository = getCustomRepository(SaleRepositories);
 
-        const sale = await saleRepository.find()
+        const sales = await saleRepository.find({ relations: ["customer", "saleProduct", "saleProduct.product"] });
 
-        return sale.map(sale => ({
+        return sales.map(sale => ({
             id: sale.id,
             date: sale.date,
             total: sale.total,
@@ -17,14 +17,17 @@ class ListSaleService {
                 email: sale.customer.email,
                 number: sale.customer.number,
             },
-            saleProducts: sale.saleProduct.map(product => ({
-                product_id: product.product_id,
-                amount: product.amount,
+            saleProducts: sale.saleProduct.map(saleProduct => ({
+                product: {
+                    id: saleProduct.product.id,
+                    name: saleProduct.product.name,
+                },
+                amount: saleProduct.amount,
             })),
             created_at: sale.created_at,
             updated_at: sale.updated_at,
-        }))
+        }));
     }
 }
 
-export { ListSaleService }
+export { ListSaleService };
