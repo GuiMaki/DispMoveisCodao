@@ -3,6 +3,4 @@ Product CRUD -> Done
 Category CRUD -> Done
 Customer CRUD -> Done
 Sale CRUD -> Done
-
-Do:
-Ratting
+rating CRUD -> Done
