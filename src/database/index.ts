@@ -1,3 +1,6 @@
 import { createConnection } from "typeorm";
+import { initialize } from "../initialize";
 
-createConnection()
+createConnection().then(() => {
+    initialize(); 
+});

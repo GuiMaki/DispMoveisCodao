@@ -26,4 +26,4 @@ class CreateUserService {
     }
 }
 
-export { CreateUserService } 
+export { CreateUserService }
