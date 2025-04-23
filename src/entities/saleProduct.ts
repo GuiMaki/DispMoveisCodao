@@ -11,10 +11,10 @@ import { sale } from "./sale";
 @Entity("sale_product")
 class saleProduct {
     @PrimaryColumn()
-    sale_id: string; // Composite primary key part 1
+    sale_id: string; 
 
     @PrimaryColumn()
-    product_id: string; // Composite primary key part 2
+    product_id: string; 
 
     @Column()
     amount: number;

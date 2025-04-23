@@ -14,10 +14,14 @@ const selectUserController = new SelectUserController();
 
 const router = Router();
 
-router.post("", createUserController.handle);
-router.get("", listUserController.handle);
-router.get("/:id", selectUserController.handle);
-router.put("/:id", updateUserController.handle);
-router.delete("/:id", deleteUserController.handle);
+const asyncHandler = (fn: Function) => (req: any, res: any, next: any) => {
+    Promise.resolve(fn(req, res, next)).catch(next);
+};
+
+router.post("", asyncHandler(createUserController.handle));
+router.get("", asyncHandler(listUserController.handle));
+router.get("/:id", asyncHandler(selectUserController.handle));
+router.put("/:id", asyncHandler(updateUserController.handle));
+router.delete("/:id", asyncHandler(deleteUserController.handle));
 
 export default router;

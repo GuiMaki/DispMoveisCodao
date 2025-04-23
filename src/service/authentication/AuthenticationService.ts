@@ -18,7 +18,7 @@ class AuthenticationService {
         }
 
         const passwordMatch = await compare(password, user?.password);
-                
+       
         if (!passwordMatch){
             throw new Error("Credenciais incorretas!");
         }

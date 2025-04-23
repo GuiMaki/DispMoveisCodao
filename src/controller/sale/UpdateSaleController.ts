@@ -22,4 +22,4 @@ class UpdateSaleController {
     }
 }
 
-export{UpdateSaleController};
+export{UpdateSaleController}; 

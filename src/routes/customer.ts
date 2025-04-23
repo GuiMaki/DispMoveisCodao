@@ -14,10 +14,14 @@ const selectCustomerController = new SelectCustomerController();
 
 const router = Router();
 
-router.post("", createCustomerController.handle);
-router.get("", listCustomerController.handle);
-router.get("/:id", selectCustomerController.handle);
-router.put("/:id", updateCustomerController.handle);
-router.delete("/:id", deleteCustomerController.handle);
+const asyncHandler = (fn: Function) => (req: any, res: any, next: any) => {
+    Promise.resolve(fn(req, res, next)).catch(next);
+};
+
+router.post("", asyncHandler(createCustomerController.handle));
+router.get("", asyncHandler(listCustomerController.handle));
+router.get("/:id", asyncHandler(selectCustomerController.handle));
+router.put("/:id", asyncHandler(updateCustomerController.handle));
+router.delete("/:id", asyncHandler(deleteCustomerController.handle));
 
 export default router;
