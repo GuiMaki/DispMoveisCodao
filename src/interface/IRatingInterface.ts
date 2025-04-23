@@ -3,8 +3,8 @@ interface IRatingRequest {
     title: string;
     review: string;
     stars: number;
-    customer: string;
-    product: string;
+    customer: { name: string }; 
+    product: { name: string };  
 }
 
 export { IRatingRequest };

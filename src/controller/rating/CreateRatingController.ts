@@ -15,7 +15,7 @@ class CreateRatingController {
             product
         });
 
-        return response.status(200).json(rating);
+        response.status(200).send(`Avaliação incluída com sucesso`);
     }
 }
 

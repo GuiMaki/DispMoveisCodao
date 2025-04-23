@@ -15,8 +15,15 @@ export class CreateRatingService {
         const customerRepository = getCustomRepository(CustomerRepositories);
         const productRepository = getCustomRepository(ProductRepositories);
 
-        const productAlreadyExists = await productRepository.findOne({ name: product });
-        const customerAlreadyExists = await customerRepository.findOne({ name: customer });
+        const customerName = customer?.name; 
+        const productName = product?.name;  
+
+        if (!customerName || !productName) {
+            throw new Error("Nome do cliente ou produto inválido");
+        }
+
+        const productAlreadyExists = await productRepository.findOne({ where: { name: productName } });
+        const customerAlreadyExists = await customerRepository.findOne({ where: { name: customerName } });
 
         if (!productAlreadyExists) {
             throw new Error("Produto não encontrado");
