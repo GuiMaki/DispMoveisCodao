@@ -5,7 +5,9 @@ class ListRatingService {
     async execute() {
         const ratingRepository = getCustomRepository(RatingRepositories);
 
-        const rating = await ratingRepository.find()
+        const rating = await ratingRepository.find({
+            relations: ["product", "customer"]
+        });
 
         return rating;
     }

@@ -1,6 +1,6 @@
 import { getCustomRepository } from "typeorm";
 import { hash } from "bcryptjs";
-import { UserRepositories } from "./repositories/UserRepositories";
+import { UserRepositories } from "../repositories/UserRepositories";
 
 export async function initialize() {
     await createDefaultUser();
