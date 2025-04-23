@@ -5,6 +5,7 @@ import SaleRouter from "./routes/sale";
 import ProductRouter from "./routes/product";
 import CustomerRouter from "./routes/customer";
 import CategoryRouter from "./routes/category";
+import RatingRouter from "./routes/rating";
 
 import { AuthenticationController } from "./controller/authentication/AuthenticationController";
 import ensureAuthenticated from "./middleware/EnsureAuthenticated";
@@ -26,5 +27,6 @@ router.use("/customers", CustomerRouter);
 
 router.use("/categories", CategoryRouter);
 
+router.use("/ratings", RatingRouter);
 
 export {router}

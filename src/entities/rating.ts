@@ -25,7 +25,7 @@ class rating {
     stars: number;
 
     @ManyToOne(() => customer, (custommer) => custommer.ratting) 
-    custommer: customer;
+    customer: customer;
 
     @ManyToOne(() => product, (product) => product.ratting)
     product: product;
