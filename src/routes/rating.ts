@@ -4,13 +4,13 @@ import { CreateRatingController } from "../controller/rating/CreateRatingControl
 import { ListRatingController } from "../controller/rating/ListRatingController";
 //import { UpdateRatingController } from "../controller/rating/UpdateRatingController";
 //import { DeleteRatingController } from "../controller/rating/DeleteRatingController";
-//import { SelectRatingController } from "../controller/rating/SelectRatingController";
+import { SelectRatingController } from "../controller/rating/SelectRatingController";
 
 const createRatingController = new CreateRatingController();
 const listRatingController = new ListRatingController();
 //const updateRatingController = new UpdateRatingController();
 //const deleteRatingController = new DeleteRatingController();
-//const selectRatingController = new SelectRatingController();
+const selectRatingController = new SelectRatingController();
 
 const router = Router();
 
@@ -20,7 +20,7 @@ const asyncHandler = (fn: Function) => (req: any, res: any, next: any) => {
 
 router.post("", asyncHandler(createRatingController.handle));
 router.get("", asyncHandler(listRatingController.handle));
-//router.get("/:id", selectRatingController.handle);
+router.get("/:id", asyncHandler(selectRatingController.handle));
 //router.put("/:id", updateRatingController.handle);
 //router.delete("/:id", deleteRatingController.handle);
 
